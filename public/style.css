@@ -1,0 +1,247 @@
+/* Base styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header styles */
+header {
+    background: #1DA1F2; /* Twitter-like blue background */
+    color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.app-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    flex: 1;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link, .logout-button {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover, .logout-button:hover {
+    color: #e6e6e6;
+    transform: scale(1.1);
+}
+
+.logout-button {
+    background: #dc3545; /* Red background for logout */
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 1em;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: absolute;
+    right: 20px;
+    bottom:20px;
+}
+
+.logout-button:hover {
+    background: #c82333;
+    transform: scale(1.1);
+}
+
+/* Form styles */
+form {
+    margin: 20px 0;
+}
+
+textarea, input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Post styles */
+.post {
+    background: #fff;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post img, .post video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.post audio {
+    display: block;
+    margin: 10px 0;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Search bar */
+.search-bar {
+    margin: 20px;
+    display: flex;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search-bar button {
+    padding: 10px;
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #0c83d3;
+}
+
+/* Login and Register styles */
+.login-container, .register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2, .register-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.login-container button, .register-container button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.login-container button:hover, .register-container button:hover {
+    background: #0056b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .app-title {
+        font-size: 1.8em;
+        text-align: center;
+        margin: 0;
+    }
+
+    .nav-menu {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link, .logout-button {
+        margin: 5px 0;
+        display: block;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input, .search-bar button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

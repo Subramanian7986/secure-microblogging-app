@@ -1,0 +1,14 @@
+<header>
+  <div class="header-content">
+    <h1>Simple Microblogging Application</h1>
+    <nav>
+      <% if (user) { %>
+        <center><span>Welcome, <%= user.username %></span></center>
+        <a href="/logout" class="logout-button">Logout</a>
+      <% } else { %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+      <% } %>
+    </nav>
+  </div>
+</header>

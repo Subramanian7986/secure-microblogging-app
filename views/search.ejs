@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <%- include('header') %>
+    <div class="container">
+        <h1>Search Users</h1>
+        <form action="/search" method="GET">
+            <input type="text" name="q" placeholder="Search for users" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>Results</h2>
+        <% if (users.length > 0) { %>
+            <% users.forEach(user => { %>
+                <div class="user">
+                    <h3><%= user.username %></h3>
+                    <form action="/follow/<%= user._id %>" method="POST">
+                        <button type="submit">Follow</button>
+                    </form>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

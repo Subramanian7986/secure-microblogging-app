@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center;">Login</h1>
+        <% if (message) { %>
+            <p style="color: red;"><%= message %></p>
+        <% } %>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <center><button type="submit">Login</button></center>
+        </form>
+        <p style="text-align: center;">Don't have an account? <a href="/register">Register</a></p>
+    </div>
+</body>
+</html>

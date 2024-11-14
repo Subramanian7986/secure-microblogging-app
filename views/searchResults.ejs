@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results for "<%= searchQuery %>"</h1>
+        <% if (users.length > 0) { %>
+            <% users.forEach(user => { %>
+                <div class="user">
+                    <h3>
+                        <% if (user.username === currentUser.username) { %>
+                            This is your username
+                        <% } else { %>
+                            <%= user.username %>
+                        <% } %>
+                    </h3>
+
+                    <% 
+                        // Check if currentUser.following is an array and if the user is followed
+                        let isFollowing = false;
+
+                        if (Array.isArray(currentUser.following)) {
+                            isFollowing = currentUser.following.some(followedUser => {
+                                // Ensure both IDs are strings
+                                return followedUser._id.toString() === user._id.toString();
+                            });
+                        }
+                    %>
+
+                    <% if (user.username === currentUser.username) { %>
+                        <p>This is your account.</p>
+                    <% } else if (isFollowing) { %>
+                        <p>You are already following this user.</p>
+                    <% } else { %>
+                        <form action="/follow/<%= user._id %>" method="POST">
+                            <button type="submit">Follow</button>
+                        </form>
+                    <% } %>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No users found.</p>
+        <% } %>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
